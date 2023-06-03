@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+
+    <?!= include("page-css"); ?>
+  
+  </head>
+  <body>
+
+  <h1> Welcome to Computer Science Department </h1>
+  <div class="form-row">
+    <label> First Name: </label><input type="text" id="fn">
+  </div>
+  
+  <div class="form-row">
+    <label> Last Name: </label><input type="text" id="ln">
+  </div>
+ 
+  <div class="form-row">
+    <label> Application: </label>
+    <select id="app">
+      <option> Google Docs </option>
+      <option> Google Sheets </option>
+      <option> Google Slides </option>
+      <option> Google Forms </option>
+      <option> Other Forms </option>
+      </select>
+  </div>
+
+  <div class="form-row">
+    <button id= "btn">Run It</button>
+  </div>
+  
+  <?!= include("page-js"); ?>
+
+  </body>
+</html>
