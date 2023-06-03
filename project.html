@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+<script src="https://kit.fontawesome.com/2523eac516.js" crossorigin="anonymous"></script>
+  </head>
+
+  <style>
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #4d3278;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	font-family: sans-serif;
+}
+
+.container {
+	max-width: 400px;
+   right: 130px;
+	width: 100%;
+	background: #FFF;
+	padding: 40px;
+	border-radius: 20px;
+	position: relative;
+}
+
+.container1 {
+	max-width: 400px;
+   right: 5px;
+	width: 100%;
+	background: #FFF;
+	padding: 40px;
+	border-radius: 20px;
+	position: relative;
+}
+
+.pic {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	font-size: 24px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 60px;
+	border: 10px solid #4d3278;
+	background: linear-gradient(to right, #9d50bb, #6e48aa);
+	transform: translate(-50%, -50%);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	text-align: center;
+	margin-top: 30px;
+}
+
+label,
+.links,
+button {
+	margin-top: 20px;
+}
+
+label {
+	margin-top: 20px;
+	font-size: 12px;
+	color: rgb(77, 77, 77);
+	font-weight: 600;
+}
+
+.input {
+	padding: 8px;
+	outline: none;
+	border: 0;
+	background: #EEE;
+}
+
+button {
+	background: linear-gradient(to right, #9d50bb, #6e48aa);
+	padding: 8px;
+	border: 0;
+	color: #fff;
+	font-size: 15px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+
+  </style>
+  <body>
+
+
+
+
+
+
+
+
+<div class="container">
+	<div class="pic">
+	<i class="fa-solid fa-cloud fa-beat"></i>
+	</div>
+	<h2 class="title">Welcome to Computer Science Department</h2>
+	<form class="form" method="POST">
+		<label for="username">Full Name</label>
+		<input type="text" id="username"  required class="input" autocomplete="off" placeholder="Enter Full Name"  />
+
+     <label for="stage">Stage</label>
+     <select id="stage" name="stage" required class="input">
+        <option value="" selected disabled>Select Stage</option>
+        <option value="1">Stage 1</option>
+        <option value="2">Stage 2</option>
+        <option value="3">Stage 3</option>
+        <option value="4">Stage 4</option>
+      </select>
+
+    <label for="semester">Semester</label>
+		<select id="semester" name="semester" required  class="input">
+			<option value="">Select your semester</option>
+			<option value="1st">1st Semester</option>
+			<option value="2nd">2nd Semester</option>
+		
+		</select>
+   
+
+    <label for="modules">Modules</label>
+		<input type="text" id="modules" name="modules" placeholder="Enter your modules" required class="input">
+
+  <label for="email">Email Address</label>
+		<input type="text" id="email" name="email" placeholder="Enter your email address" required  class="input">
+
+		
+		<button id="btn">submit</button>
+	</form>
+</div>
+
+
+
+
+
+<div class="container1">
+	<div class="pic">
+	<i class="fa-solid fa-calculator fa-beat"></i>
+	</div>
+	<h2 class="title">ECTS Calculate </h2>
+	<form class="form">
+
+
+
+		<label for="CloudComputing">Cloud Computing</label >
+		<input type="text" id="CloudComputing"  class="input" autocomplete="off" placeholder="Score of Cloud Computing" />
+
+
+    <label for="MachineLearning"> Machine Learning </label>
+		<input type="text" id="MachineLearning" name="MachineLearning" placeholder="Score of Machine Learning" class="input">
+
+
+     <label for="modules">IOT</label>
+		<input type="text" id="IOT" name="IOT" placeholder="Score of IOT"  class="input">
+
+
+     <label for="modules">Big Data</label>
+		<input type="text" id="BigData" name="BigData" placeholder="Score of Big Data"  class="input">
+
+    
+     <label for="modules">Research </label>
+		<input type="text" id="Research" name="Research" placeholder="Score of Research"  class="input">
+
+
+    <label for="modules">Your ECTS Score</label>
+		<input type="text" id="result" name="result" class="input" disabled>
+
+
+		
+		<button onclick="cal()">calculate</button>
+	</form>
+</div>
+
+
+
+
+
+
+
+<script>
+document.getElementById("btn").addEventListener(
+"click",addinfo);
+function addinfo()
+{
+
+userinfo={};
+userinfo.username=document.getElementById("username").value;
+userinfo.stage=document.getElementById("stage").value;
+userinfo.semester=document.getElementById("semester").value;
+userinfo.modules=document.getElementById("modules").value;
+userinfo.email=document.getElementById("email").value;
+
+
+google.script.run.userClicked(userinfo);
+
+document.getElementById("username").value="";
+document.getElementById("stage").value="";
+document.getElementById("semester").value="";
+document.getElementById("modules").value="";
+document.getElementById("email").value="";
+
+
+
+}
+
+
+
+function cal()
+{
+
+
+var A1=parseInt(document.getElementById("CloudComputing").value);
+var A2=parseInt(document.getElementById("MachineLearning").value);
+var A3=parseInt(document.getElementById("IOT").value);
+var A4=parseInt(document.getElementById("BigData").value);
+var A5=parseInt(document.getElementById("Research").value);
+
+
+var A11=A1*6;
+var A22=A2*5;
+var A33=A3*5;
+var A44=A4*5;
+var A55=A5*8;
+var sum=A11+A22+A33+A44+A55;
+var div=sum/30
+
+document.getElementById("result").value=div;
+event.preventDefault();
+
+}
+
+
+</script>
+
+
+
+
+
+  </body>
+</html> 
